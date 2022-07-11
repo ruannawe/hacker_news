@@ -2,14 +2,20 @@
 
 Hacker News is YCombinator's news website focusing on CS and entrepreneurship. It has an open-source API.
 
-* Ruby version
+Ruby version
 
-3.2.0
+```sh
+ruby 3.2.0preview1
+```
 
-* Database creation
+Database creation
 
+```sh
 rails db:create db:migrate db:seed
+```
 
-* How to run the test suite
+Test suite
 
+```sh
 rspec ./spec
+```
