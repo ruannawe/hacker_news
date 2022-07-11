@@ -1,24 +1,15 @@
-# README
+# Hacker News
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Hacker News is YCombinator's news website focusing on CS and entrepreneurship. It has an open-source API.
 
 * Ruby version
 
-* System dependencies
-
-* Configuration
+3.2.0
 
 * Database creation
 
-* Database initialization
+rails db:create db:migrate db:seed
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rspec ./spec
