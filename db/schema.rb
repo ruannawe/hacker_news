@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_044828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_items_on_item_id"
+    t.index ["item_type"], name: "index_items_on_item_type"
   end
 
   add_foreign_key "items", "items"

@@ -7,7 +7,7 @@ class HackerNewsService
 
   def top_stories
     story_ids = @hn_client.get_top_stories.first(AMOUNT_OF_STORIES)
-    create(story_ids)
+    create(Item.where.not(id: story_ids).pluck(:id))
   end
 
   private
@@ -18,7 +18,9 @@ class HackerNewsService
     item_ids.each do |item_id|
       item_params, kids = parse_item_params(@hn_client.get_item(item_id))
 
-      Item.create!(item_params) if Item.item_types.keys.include?(item_params[:item_type])
+      if Item.item_types.keys.include?(item_params[:item_type])
+        Item.create!(item_params) if Item.find_by(id: item_params[:id]).nil?
+      end
 
       create(kids)
     end
