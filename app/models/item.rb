@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-  enum :type, %i(story comment)
+  enum item_type: %i(story comment job poll)
 end

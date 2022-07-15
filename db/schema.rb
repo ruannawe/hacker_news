@@ -15,13 +15,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_044828) do
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.string "by", null: false
-    t.bigint "item_id"
-    t.integer "score", null: false
+    t.integer "item_type", default: 0, null: false
     t.integer "time", null: false
-    t.string "title", null: false
-    t.integer "type", default: 0, null: false
-    t.string "url", null: false
+    t.boolean "deleted", default: false, null: false
+    t.bigint "item_id"
+    t.string "by"
+    t.string "title"
+    t.string "url"
+    t.integer "score"
+    t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_items_on_item_id"
