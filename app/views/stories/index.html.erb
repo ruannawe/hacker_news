@@ -1,6 +1,59 @@
-<h1>Stories#index</h1>
-<p>Find me in app/views/stories/index.html.erb</p>
+<h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">Hacker News</h1>
 
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="py-3 px-6">
+          -
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Title
+        </th>
+        <th scope="col" class="py-3 px-6">
+          URL
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Score
+        </th>
+        <th scope="col" class="py-3 px-6">
+          By
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Time
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Comments
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each_with_index do |item, index| %>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="py-4 px-6">
+            <%= index + 1 %>
+          </td>
+          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= item.title %>
+          </th>
+          <td class="py-4 px-6">
+            <%= item.url %>
+          </td>
+          <td class="py-4 px-6">
+            <%= item.score %>
+          </td>
+          <td class="py-4 px-6">
+            <%= item.by %>
+          </td>
+          <td class="py-4 px-6">
+            <%= item.time %>
+          </td>
+          <td class="py-4 px-6">
+            <%= item.items.count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

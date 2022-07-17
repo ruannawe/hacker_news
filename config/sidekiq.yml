@@ -1,4 +1,5 @@
 :schedule:
   hacker_news_sync_schedule_job:
-    cron: '*/5 * * * *' # Runs once per minute
+#    cron: '*/5 * * * *'
+    cron: '* * * * *'
     class: HackerNewsJob
