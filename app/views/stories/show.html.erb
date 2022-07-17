@@ -1,0 +1,17 @@
+<div class="bg-orange-300 mb-5 block p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <h1 class="text-2xl font-bold"><%= @item.title %></h1>
+  <p class="font-normal text-gray-700 dark:text-gray-400">
+    URL: <a class="underline" href="<%= @item.url %>"><%= format_link(@item.url) %></a>
+  </p>
+  <p class="font-normal text-gray-700 dark:text-gray-400">
+    Score: <%= @item.score %>
+  </p>
+  <p class="font-normal text-gray-700 dark:text-gray-400">
+    By: <%= @item.by %>
+  </p>
+  <p class="font-normal text-gray-700 dark:text-gray-400">
+    Time: <%= time_ago_in_words(@item.time) %>
+  </p>
+</div>
+
+<%= render :partial => 'comments', locals: { items: @item.items, tab_space: 0 } %>

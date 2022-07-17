@@ -38,6 +38,7 @@ class HackerNewsService
       url: item_params['url'],
       score: item_params['score'],
       text: item_params['text'],
+      deleted: item_params['deleted'],
     }
 
     [item, item_params['kids']]

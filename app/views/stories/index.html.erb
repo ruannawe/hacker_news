@@ -1,4 +1,4 @@
-<h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">Hacker News</h1>
+<h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-orange-500">Hacker News</h1>
 
 <div class="overflow-x-auto shadow-md sm:rounded-lg">
   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -37,7 +37,7 @@
             <%= item.title %>
           </th>
           <td class="py-4 px-6">
-            <%= item.url %>
+            <a href="<%= item.url %>"><%= format_link(item.url) %></a>
           </td>
           <td class="py-4 px-6">
             <%= item.score %>
@@ -46,7 +46,7 @@
             <%= item.by %>
           </td>
           <td class="py-4 px-6 whitespace-nowrap">
-            <%= Time.at(item.time).to_formatted_s(:short) %>
+            <%= time_ago_in_words(item.time) %>
           </td>
           <td class="py-4 px-6">
             <%= item.items.count %>
