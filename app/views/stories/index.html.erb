@@ -37,7 +37,7 @@
             <%= item.title %>
           </th>
           <td class="py-4 px-6">
-            <a href="<%= item.url %>"><%= format_link(item.url) %></a>
+            <a class="underline" href="<%= item.url %>"><%= format_link(item.url) %></a>
           </td>
           <td class="py-4 px-6">
             <%= item.score %>
@@ -48,8 +48,8 @@
           <td class="py-4 px-6 whitespace-nowrap">
             <%= time_ago_in_words(item.time) %>
           </td>
-          <td class="py-4 px-6">
-            <%= item.items.count %>
+          <td class="py-4 px-6 underline text-blue-500">
+            <a href="/stories/<%= item.id %>"><%= count_comments(item.items) %></a>
           </td>
         </tr>
       <% end %>
