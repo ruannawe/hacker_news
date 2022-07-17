@@ -7,7 +7,7 @@ class HackerNewsService
 
   def top_stories
     new_stories = @hn_client.get_top_stories.first(AMOUNT_OF_STORIES)
-    registered_stories = Item.where.not(id: new_stories).pluck(:id)
+    registered_stories = Item.where(item_type: :story).pluck(:id)
     new_stories -= registered_stories
 
     create(new_stories)
@@ -21,7 +21,7 @@ class HackerNewsService
     item_ids.each do |item_id|
       item_params, kids = parse_item_params(@hn_client.get_item(item_id))
 
-      Item.create!(item_params) if Item.item_types.keys.include?(item_params[:item_type])
+      Item.create!(item_params) if Item.item_types.keys.include?(item_params[:item_type]) && !item_params[:deleted]
 
       create(kids)
     end
@@ -38,7 +38,7 @@ class HackerNewsService
       url: item_params['url'],
       score: item_params['score'],
       text: item_params['text'],
-      deleted: item_params['deleted'],
+      deleted: item_params['deleted'] || false,
     }
 
     [item, item_params['kids']]
