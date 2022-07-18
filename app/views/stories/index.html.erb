@@ -37,7 +37,7 @@
             <%= item.title %>
           </th>
           <td class="py-4 px-6">
-            <a class="underline" href="<%= item.url %>"><%= format_link(item.url) %></a>
+            <a class="underline" href="<%= item.url || '#' %>"><%= format_link(item.url) %></a>
           </td>
           <td class="py-4 px-6">
             <%= item.score %>
